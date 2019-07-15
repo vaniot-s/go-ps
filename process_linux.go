@@ -14,7 +14,8 @@ import (
 func (p *UnixProcess) Refresh() error {
 	statPath := fmt.Sprintf("/proc/%d/stat", p.pid)
 	dataBytes, err := ioutil.ReadFile(statPath)
-	os.Stdout.Write(dataBytes)
+	var str string = string(dataBytes[:])
+      log.Printf(str)
 	if err != nil {
 		return err
 	}
