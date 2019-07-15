@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"log"
 	"strings"
+	"os"
 )
 
 // Refresh reloads all the data associated with this process.
