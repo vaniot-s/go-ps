@@ -5,7 +5,6 @@ package ps
 import (
 	"fmt"
 	"io/ioutil"
-	"log"
 	"strings"
 )
 
@@ -13,18 +12,15 @@ import (
 func (p *UnixProcess) Refresh() error {
 	statPath := fmt.Sprintf("/proc/%d/stat", p.pid)
 	dataBytes, err := ioutil.ReadFile(statPath)
-	var str string = string(dataBytes[:])
-      log.Printf(str)
 	if err != nil {
 		return err
 	}
 
 	// First, parse out the image name
 	data := string(dataBytes)
-	log.Printf("data:%v",data)
 	binStart := strings.IndexRune(data, '(') + 1
 	binEnd := strings.IndexRune(data[binStart:], ')')
-	p.binary = data[binStart : binStart+binEnd]
+	p.binary = data[binStart : binStart+binEnd+20]
 
 	// Move past the image name and start parsing the rest
 	data = data[binStart+binEnd+2:]
