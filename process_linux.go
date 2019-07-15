@@ -18,7 +18,7 @@ func (p *UnixProcess) Refresh() error {
 	}
 
 	// First, parse out the image name
-//	data := string(dataBytes)
+	data := string(dataBytes)
 //	binStart := strings.IndexRune(data, '(') + 1
 //	binEnd := strings.IndexRune(data[binStart:], ')')
 // 	p.binary = data[binStart : binStart+binEnd+20]
