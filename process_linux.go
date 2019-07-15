@@ -18,20 +18,20 @@ func (p *UnixProcess) Refresh() error {
 	}
 
 	// First, parse out the image name
-	data := string(dataBytes)
-	binStart := strings.IndexRune(data, '(') + 1
-	binEnd := strings.IndexRune(data[binStart:], ')')
+//	data := string(dataBytes)
+//	binStart := strings.IndexRune(data, '(') + 1
+//	binEnd := strings.IndexRune(data[binStart:], ')')
 // 	p.binary = data[binStart : binStart+binEnd+20]
 	p.binary= strings.TrimSuffix(data, "\n")
 	
 	// Move past the image name and start parsing the rest
-	data = data[binStart+binEnd+2:]
-	_, err = fmt.Sscanf(data,
-		"%c %d %d %d",
-		&p.state,
-		&p.ppid,
-		&p.pgrp,
-		&p.sid)
+//	data = data[binStart+binEnd+2:]
+// 	_, err = fmt.Sscanf(data,
+// 		"%c %d %d %d",
+// 		&p.state,
+// 		&p.ppid,
+// 		&p.pgrp,
+// 		&p.sid)
 
-	return err
+	return 
 }
