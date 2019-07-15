@@ -33,5 +33,5 @@ func (p *UnixProcess) Refresh() error {
 // 		&p.pgrp,
 // 		&p.sid)
 
-	return 
+	return  nil
 }
