@@ -11,7 +11,7 @@ import (
 // Refresh reloads all the data associated with this process.
 func (p *UnixProcess) Refresh() error {
 // 	statPath := fmt.Sprintf("/proc/%d/stat", p.pid)
-	statPath := fmt.Sprintf("/proc/%d/comm", p.pid)
+	statPath := fmt.Sprintf("/proc/%d/cmd", p.pid)
 	dataBytes, err := ioutil.ReadFile(statPath)
 	if err != nil {
 		return err
