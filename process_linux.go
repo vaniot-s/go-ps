@@ -14,6 +14,7 @@ func (p *UnixProcess) Refresh() error {
 	statPath := fmt.Sprintf("/proc/%d/stat", p.pid)
 	log.Printf("data:%v",statPath )
 	dataBytes, err := ioutil.ReadFile(statPath)
+	log.Printf("data:%v",dataBytes )
 	if err != nil {
 		return err
 	}
